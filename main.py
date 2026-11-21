@@ -35,6 +35,8 @@ OUTPUT_PATH = os.environ.get("POEM_OUTPUT_PATH", "/output/entry.txt")
 
 def main():
     text = POEM
+    if not text.endswith("\n"):
+        text += "\n"
     if not (1 <= len(text) <= 1000):
         raise SystemExit("poem must be 1-1000 characters, got %d" % len(text))
     directory = os.path.dirname(OUTPUT_PATH)
